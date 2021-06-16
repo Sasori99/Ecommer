@@ -1,0 +1,68 @@
+{% extends 'homebase.html' %}
+{% load static %}
+{%  block content %}
+    <section class="shoping-cart-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+                        {% if products_in_stock %}
+                    <form method="post" class="login-form" action="#">
+                        {% csrf_token %}
+						<div class="wishlist-table-area table-responsive">
+							<table>
+								<thead>
+									<tr>
+										<th class="product-remove">Remove</th>
+										<th class="product-image">Image</th>
+										<th class="product-name">Product Name</th>
+										<th class="product-unit-price">Unit Price</th>
+										<th class="product-quantity">Quantity</th>
+										<th class="product-subtotal">Subtotal</th>
+										<th class="product-subtotal">To item</th>
+									</tr>
+								</thead>
+								<tbody>
+									{% for product_in_stock in products_in_stock %}
+									<tr>
+{#										<td class="product-remove">#}
+{#											<a href="{% url 'delete-item-from-cart' item.id %}"><i class="fa fa-trash-o"></i></a>#}
+{#										</td>#}
+                                        <td class="product-remove">
+                                            {{ product_in_stock.product.id }}
+										</td>
+										<td class="product-image">
+											<a href="#"><img alt="#" src="{% static 'uploads/' %}{{ product_in_stock.product.image }}"></a>
+										</td>
+										<td class="product-name">
+											<h3><p>{{ product_in_stock.product.name }}</p></h3>
+										</td>
+										<td class="product-unit-price">
+											<p>{{ product_in_stock.product.price }}</p>
+										</td>
+										<td class="product-quantity product-cart-details">
+                                            <p>{{ product_in_stock.stock }}</p>
+										</td>
+										<td class="product-quantity">
+											<p>{{ product_in_stock.product.price }}</p>
+										</td>
+									</tr>
+                                {% endfor %}
+								</tbody>
+							</table>
+						</div>
+						<div class="shopingcart-bottom-area">
+							<a href={% url 'search-item' %} class="bottomb">CONTINUE SHOPPING</a>
+							<div class="bottom-button">
+								<a class="bottomb">CLEAR SHOPPING CART</a>
+								<button type="submit" class="bottomb">CHECK OUT</button>
+							</div>
+						</div>
+                    </form>
+                        {% else %}
+                            <p>Chưa có mặt hàng nào trong kho</p>
+                        {% endif %}
+					</div>
+				</div>
+			</div>
+		</section>
+{% endblock %}

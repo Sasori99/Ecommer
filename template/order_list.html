@@ -1,0 +1,70 @@
+{% extends 'homebase.html' %}
+{% load static %}
+{%  block content %}
+    <section class="shoping-cart-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="wishlist-table-area table-responsive">
+							<table>
+								<thead>
+									<tr>
+										<th class="product-remove">ID</th>
+										<th class="product-name">Khuyến mãi</th>
+										<th class="product-name">Tình trạng đơn hàng</th>
+										<th class="product-unit-price">Tổng tiền</th>
+										<th class="product-quantity">Tình trạng ship</th>
+									</tr>
+								</thead>
+								<tbody>
+									{% for order_log in page_obj %}
+									<tr>
+										<td>
+											<a href="{% url 'order-details-view' order_log.id %}">{{ order_log.order.id }}</a>
+										</td>
+										<td class="product-name">
+											<h3>{{ order_log.order.sale_off }}</h3>
+										</td>
+										<td class="product-unit-price">
+											<p>{{ order_log.order_status }}</p>
+										</td>
+										<td class="product-quantity product-cart-details">
+                                            <p>{{ order_log.order.payment }}</p>
+										</td>
+										<td class="product-quantity">
+                                            {% if order_log.shipment != None %}
+											<p>{{ order_log.shipment }}</p>
+                                             {% endif %}
+										</td>
+									</tr>
+                                {% endfor %}
+                               <span class="step-links">
+                                        {% if page_obj.has_previous %}
+                                            <a href="?page=1">&laquo; về trang đầu</a>
+                                            <a href="?page={{ page_obj.previous_page_number }}">trước</a>
+                                        {% endif %}
+
+                                        <span class="current">
+                                            Trang {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}.
+                                        </span>
+
+                                        {% if page_obj.has_next %}
+                                            <a href="?page={{ page_obj.next_page_number }}">tiếp</a>
+                                        {% endif %}
+                                    </span>
+
+								</tbody>
+							</table>
+						</div>
+						<div class="shopingcart-bottom-area">
+							<a href={% url 'search-item' %} class="bottoma">CONTINUE SHOPPING</a>
+							<div class="bottom-button">
+								<a href="#" class="bottomb">CLEAR SHOPPING CART</a>
+								<a href="{% url 'check-out' %}" class="bottomb">CHECK OUT</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+{% endblock %}

@@ -1,0 +1,111 @@
+{% extends 'homebase.html' %}
+{% block content %}
+    {% load static %}
+  <div class="product-simple-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <img alt="abc" src="{% static 'uploads/' %}{{ item.product.image }}">
+						<div class="single-product-image">
+							<div class="single-product-tab">
+							  <!-- Nav tabs -->
+
+                            <div class="tab-content">
+								<div role="tabpanel" class="tab-pane active" id="home"></div>
+								<div role="tabpanel" class="tab-pane" id="profile"><img alt="" src="img/single-product/2.jpg"></div>
+								<div role="tabpanel" class="tab-pane" id="messages"><img alt="" src="img/single-product/3.jpg"></div>
+								<div role="tabpanel" class="tab-pane" id="settings"><img alt="" src="img/single-product/4.jpg"></div>
+							  </div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+						<div class="single-product-info">
+							<div class="product-nav">
+								<a href="#"><i class="fa fa-angle-right"></i></a>
+							</div>
+							<h1 class="product_title">{{ item.product.name }}</h1>
+							<div class="price-box">
+								<span class="new-price">{{ item.product.price }}</span>
+							</div>
+							<div class="pro-rating">
+								<a href="#"><i class="fa fa-star"></i></a>
+                                <p>{{ rating }} / 5</p>
+{#								<a href="#"><i class="fa fa-star"></i></a>#}
+{#								<a href="#"><i class="fa fa-star"></i></a>#}
+{#								<a href="#"><i class="fa fa-star"></i></a>#}
+{#								<a href="#"><i class="fa fa-star"></i></a>#}
+							</div>
+							<div class="short-description">
+                                {% if item.product.type %}
+                                    <p>product</p>
+                                {% endif %}
+							</div>
+							<div class="stock-status">
+								<label>Availability</label>: <strong>In stock</strong>
+							</div>
+							<form action="{% url 'add-to-cart' item.id %}" method="POST" >
+								{%   csrf_token %}
+                                <div class="quantity">
+									<input type="number" name="quantity" value="1" min="1" />
+									<button type="submit">Add to cart</button>
+								</div>
+							</form>
+							<div class="add-to-wishlist">
+								<a href="#" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-star"></i></a>
+								<a href="#" data-toggle="tooltip" title="Compare"><i class="fa fa-exchange"></i></a>
+							</div>
+							<div class="share_buttons">
+								<a href="#"><img src="img/share-img.png" alt="" /></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+    <div class="product-simple-area">
+        <div class="container">
+                {% if can_comment == True %}
+                    <div class="row" style="display: flex">
+                        <div style="margin:auto">
+                            <form action="{% url 'product-details' item.id %}" method="post" style="display: flex;flex-direction: column; margin-bottom: 20px">
+                                {% csrf_token %}
+                                <label style="justify-content: center">Comment</label>
+                                <input type="text" name="rating"/>
+                                <textarea name="content" id="" cols="50" rows="5"></textarea>
+                                <input type="submit" value="Comment" class="btn btn-danger" style="margin-top: 20px">
+                            </form>
+                        </div>
+                    </div>
+                {% endif %}
+                    <div class="row" style="margin-bottom: 50px">
+                        {% for cm in comments  %}
+                            <div class="media" style="height: 100px;display: flex">
+                            <div style="width: 500px">
+                                <img style="width: 600px" class="media-object" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+                            </div>
+                                <div class="media-body" style="margin-left: 20px">
+                                    <a href="#"><i class="fa fa-star"></i></a>
+                                    <p>{{ cm.customer.username }} {{ rating }} / 5 <br> {{ cm.content }}</p>
+{#                                    <a href="#"><i class="fa fa-star"></i></a>#}
+{#                                    <a href="#"><i class="fa fa-star"></i></a>#}
+{#                                    <a href="#"><i class="fa fa-star"></i></a>#}
+{#                                    <a href="#"><i class="fa fa-star"></i></a>#}
+                            <ul class="list-unstyled list-inline media-detail pull-left">
+                                <li>
+                                    <i class="fa fa-calendar"> {{ cm.date }}</i>
+                                </li>
+                            </ul>
+                                </div>
+                            </div>
+                        {% endfor %}
+
+
+
+                </div>
+                    <br>
+                    </div>
+        </div>
+    </div>
+
+{% endblock %}
