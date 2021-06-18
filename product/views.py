@@ -9,18 +9,13 @@ from django.shortcuts import render, redirect
 # Create your views here.
 from django.views.generic import ListView
 
-from comment.models import Comment, Sentiment
 from order.forms import ItemInCartForm
-from order.models import OrderStatusLogs, Shipment
+from order.models import OrderStatusLogs, Payment
 from staff.models import *
-from payment.models import *
 from product.models import *
-
+from django.urls import reverse
 # Create your views here.
-import fasttext
-from user.models import Cart
 
-model = fasttext.load_model('/home/son/Downloads/Ecommerce_Django/djangoProject/sentiment.bin')
 
 
 def home(request):
@@ -34,18 +29,24 @@ def home(request):
 
 def detailProduct(request, item_id):
     item = Item.objects.get(pk=item_id)
-    cart = Cart.objects.get(user=request.user)
+    cart = Cart.objects.filter(user=request.user)
+
+    if len(cart) == 0:
+        cart = Cart(user=request.user, cart_type="")
+        cart.save()
+    else:
+        cart = Cart.objects.get(user=request.user)
+
     items_in_cart = ItemInCart.objects.filter(item=item, cart=cart).exclude(order__isnull=True)
     # order_status = OrderStatus.objects.get(status__exact="Đã hoàn thành")
     # order_status_logs = OrderStatusLogs.objects.filter(order__in=items_in_cart.order, order_status=order_status)
     can_comment = len(items_in_cart) > 0
     if request.method == 'POST' and can_comment:
-        sentiment_id = model.predict([request.POST['content']])[0][0][0].split('__')[-1]
-        sentiment = Sentiment.objects.get(pk=sentiment_id)
+        sentiment = Sentiment.objects.get(pk=1)
         commnet = Comment(customer=request.user, item=item, content=request.POST['content'],
                           rating=request.POST['rating'], sentiment=sentiment)
         commnet.save()
-        return redirect('product_detail.html?' + str(item_id))
+        return HttpResponseRedirect(reverse('product-details', kwargs={'item_id':item_id}))
 
     product = item.product
     product.price = int(product.price)

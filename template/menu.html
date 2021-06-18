@@ -1,0 +1,164 @@
+{% load static %}
+<div class="menu-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-2 col-sm-2">
+						<div class="logo-area">
+							<a href="home"><img style="width: 55px;" src="{%  static 'web/img/home-1/logo-3.png' %}" alt="" /></a>
+						</div>
+					</div>
+					<div class="col-md-8 col-sm-8">
+						<div class="main-menu">
+							<ul class="list-inline">
+							  <li class="expand {% if not request.GET.type %} active {% endif %}"><a href="{% url 'home' %}">Trang chủ</a>
+								<ul class="single sub-menu">
+									<li class="sub-menu-title">Trang chủ</li>
+									<li><a href={% url 'search-item' %}>Sản phẩm</a></li>
+{#									<li><a href="index-2.html">Home Version Two</a></li>#}
+								</ul>
+							  </li>
+							  <li><a href="{% url 'search-item' %}?type=1">Quần áo</a>
+								<!-- Mega Menu Four Column -->
+{#								<div class="mega-menu">#}
+{#									<span>#}
+{#										<a href="#" class="mega-title">Categories 01</a>#}
+{#										<a href="shop.html">Washing machine 1</a>#}
+{#										<a href="shop.html">Washing machine 2</a>#}
+{#										<a href="shop.html">Washing machine 3</a>#}
+{#										<a href="shop.html">Washing machine 4</a>#}
+{#									</span>#}
+{#									<span>#}
+{#										<a href="#" class="mega-title">Categories 02</a>#}
+{#										<a href="shop.html">Washing machine 1</a>#}
+{#										<a href="shop.html">Washing machine 2</a>#}
+{#										<a href="shop.html">Washing machine 3</a>#}
+{#										<a href="shop.html">Washing machine 4</a>#}
+{#									</span>#}
+{#									<span>#}
+{#										<a href="#" class="mega-title">Categories 03</a>#}
+{#										<a href="shop.html">Washing machine 1</a>#}
+{#										<a href="shop.html">Washing machine 2</a>#}
+{#										<a href="shop.html">Washing machine 3</a>#}
+{#										<a href="shop.html">Washing machine 4</a>#}
+{#									</span>#}
+{#									<span class="mega-menu-img">#}
+{#										<a href="#"><img alt="" src="img/other-pg/img_menu.jpg"></a>#}
+{#									</span>#}
+{#								</div>#}
+							  </li>
+							  <li><a href="{% url 'search-item' %}?type=2">Sách</a>
+{#								<div class="mega-menu two-column">#}
+{#									<span>#}
+{#										<a href="#" class="mega-title">Categories 01</a>#}
+{#										<a href="shop.html">Washing machine 1</a>#}
+{#										<a href="shop.html">Washing machine 2</a>#}
+{#										<a href="shop.html">Washing machine 3</a>#}
+{#										<a href="shop.html">Washing machine 4</a>#}
+{#									</span>#}
+{#									<span>#}
+{#										<a href="#" class="mega-title">Categories 02</a>#}
+{#										<a href="shop.html">Washing machine 1</a>#}
+{#										<a href="shop.html">Washing machine 2</a>#}
+{#										<a href="shop.html">Washing machine 3</a>#}
+{#										<a href="shop.html">Washing machine 4</a>#}
+{#									</span>#}
+{#								</div>#}
+							  </li>
+							  <li><a href="{% url 'search-item' %}?type=3">Đồ điện tử</a></li>
+{#							  <li class="expand"><a href="#">PAGES</a>#}
+{#								<ul class="single sub-menu">#}
+{#									<li><a href="about-us.html">About</a></li>#}
+{#									<li><a href="shop.html">Shop</a></li>#}
+{#									<li><a href="{% url 'shopping-cart' %}">Shop Cart</a></li>#}
+{#									<li><a href="shop-list.html">Shop List</a></li>#}
+{#									<li><a href="single-product.html">Single Product</a></li>#}
+{#									<li><a href="wishlist.html">Wishlist</a></li>#}
+{#									<li><a href="checkout.html">Checkout</a></li>#}
+{#									<li><a href="account.html">Account</a></li>#}
+{#									<li><a href={% url 'login' %}>Log In</a></li>#}
+{#									<li><a href="contact-us.html">Contact Us</a></li>#}
+{#									<li><a href="404.html">404 Error</a></li>#}
+{#								</ul>#}
+{#							  </li>#}
+{#							  <li><a href="contact-us.html">Liên hệ</a></li>#}
+							</ul>
+						</div>
+					</div>
+					<!-- MOBILE-MENU-AREA START -->
+					<div class="mobile-menu-area">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-12">
+								<div class="mobile-area">
+									<div class="mobile-menu">
+										<nav id="mobile-nav">
+											<ul>
+												<li><a href="homebase.html">Home </a>
+													<ul>
+														<li><a href="index.html">Home version one</a></li>
+														<li><a href="index-2.html">Home Version two</a></li>
+													</ul>
+												</li>
+												<li><a href="shop.html"> Cửa Hàng </a></li>
+												<li><a href="about-us.html"> Về chúng tôi </a></li>
+												<li><a href="#"> Pages </a>
+													<ul>
+														<li><a href="about-us.html">Về chúng tôi</a></li>
+														<li><a href="shop.html">Shop</a></li>
+														<li><a href="shop-list.html">Shop List</a></li>
+														<li><a href="shoping-cart.html">Shop Cart</a></li>
+														<li><a href="single-product.html">Single Product</a></li>
+														<li><a href="checkout.html">Checkout</a></li>
+														<li><a href="account.html">My Account</a></li>
+														<li><a href="login.html">Login</a></li>
+														<li><a href="wishlist.html">Wishlist</a></li>
+														<li><a href="contact-us.html">Contact</a></li>
+														<li><a href="404.html">404 Error</a></li>
+													</ul>
+												</li>
+												<li><a href="#"> TRở lại </a></li>
+												<li><a href="#"> Đặt hàng</a></li>
+												<li><a href="contact-us.html"> Liên hệ với chúng tôi </a></li>
+											</ul>
+										</nav>
+									</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- MOBILE-MENU-AREA END  -->
+					<div class="col-md-2 col-sm-2">
+						<div class="menu-right-area">
+							<ul>
+								<li>
+									<a href="#" class="cart-toggler search-icon">
+										<i class="fa fa-search"></i>
+									</a>
+									<div class="header-bottom-search">
+										<form method="GET" action="{% url 'search-item' %}{% if request.GET.type %}?type={{ request.GET.type }}&{% endif %}" class="search-box">
+											<div >
+												<input type="text" autocomplete="off" placeholder="Search" value="" id="menu_search" name="product_name" style="background-color: honeydew;"/>
+{#											    <button type="button" class="btn btn">#}
+{#                                                    <i class="fa fa-search"></i>#}
+{#                                                </button>#}
+                                            </div>
+										</form>
+									</div>
+								</li>
+								<li>
+                                    {% if user.is_authenticated %}
+									<a href="{% url 'shopping-cart' %}" class="cart-toggler mini-cart-icon">
+										<i class="fa fa-shopping-cart"></i>
+{#										<span>2</span>#}
+									</a>
+								</li>
+                            {% endif %}
+
+							</ul>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>

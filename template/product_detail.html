@@ -38,17 +38,17 @@
 							</div>
 							<div class="short-description">
                                 {% if item.product.type %}
-                                    <p>product</p>
+                                    <p>Sản phẩm</p>
                                 {% endif %}
 							</div>
 							<div class="stock-status">
-								<label>Availability</label>: <strong>In stock</strong>
+								<label>Khả dụng</label>: <strong>In stock</strong>
 							</div>
 							<form action="{% url 'add-to-cart' item.id %}" method="POST" >
 								{%   csrf_token %}
                                 <div class="quantity">
 									<input type="number" name="quantity" value="1" min="1" />
-									<button type="submit">Add to cart</button>
+									<button type="submit">Thêm vào giỏ hàng</button>
 								</div>
 							</form>
 							<div class="add-to-wishlist">
@@ -64,21 +64,33 @@
 			</div>
 		</div>
     <div class="product-simple-area">
+        {% if can_comment %}
+
         <div class="container">
-                {% if can_comment == True %}
                     <div class="row" style="display: flex">
                         <div style="margin:auto">
+
                             <form action="{% url 'product-details' item.id %}" method="post" style="display: flex;flex-direction: column; margin-bottom: 20px">
                                 {% csrf_token %}
-                                <label style="justify-content: center">Comment</label>
-                                <input type="text" name="rating"/>
+                                <label style="justify-content: center">Nhận xét</label>
+								<fieldset class="rating">
+									<input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+									<input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+									<input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+									<input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+									<input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+								</fieldset>
+                                <!-- <input type="text" name="rating"/> -->
+
                                 <textarea name="content" id="" cols="50" rows="5"></textarea>
                                 <input type="submit" value="Comment" class="btn btn-danger" style="margin-top: 20px">
                             </form>
+
                         </div>
                     </div>
-                {% endif %}
-                    <div class="row" style="margin-bottom: 50px">
+                                                {% endif %}
+
+                <div class="row" style="margin-bottom: 50px">
                         {% for cm in comments  %}
                             <div class="media" style="height: 100px;display: flex">
                             <div style="width: 500px">

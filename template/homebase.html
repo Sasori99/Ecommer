@@ -1,0 +1,51 @@
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Home One</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Place favicon.ico in the root directory -->
+		<link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+		<!-- Google Fonts -->
+		<link href='https://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700,900' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Lato:400,700,900,300' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+		<!-- all css here -->
+		<!-- bootstrap v3.3.6 css -->
+        <link rel="stylesheet" href="{% static 'web/css/bootstrap.min.css' %}">
+		<!-- animate css -->
+        <link rel="stylesheet" href="{% static 'web/css/animate.css '%}">
+        <!-- nivo slider CSS -->
+		<link rel="stylesheet" href="{% static 'web/lib/css/nivo-slider.css' %}" type="text/css" />
+		<link rel="stylesheet" href="{% static 'web/lib/css/preview.css' %}" type="text/css" media="screen" />
+		<!-- jquery-ui.min css -->
+        <link rel="stylesheet" href="{% static 'web/css/jquery-ui.min.css' %}">
+        <!-- rating.css-->
+        <link rel="stylesheet" href="{% static 'web/css/ratting.css' %}">
+        <!-- table.css-->
+        <link rel="stylesheet" href="{% static 'web/css/table.css' %}">
+		<!-- meanmenu css -->
+        <link rel="stylesheet" href="{% static 'web/css/meanmenu.min.css' %}">
+		<!-- owl.carousel css -->
+        <link rel="stylesheet" href="{% static 'web/css/owl.carousel.css' %}">
+		<!-- font-awesome css -->
+        <link rel="stylesheet" href="{% static 'web/css/font-awesome.min.css' %}">
+		<!-- style css -->
+		<link rel="stylesheet" href="{% static 'web/style.css' %}">
+		<!-- responsive css -->
+        <link rel="stylesheet" href="{% static 'web/css/responsive.css '%}">
+		<!-- modernizr css -->
+        <script src="{% static 'js/vendor/modernizr-2.8.3.min.js' %}"></script>
+</head>
+    <body>
+        {% include 'header.html' %}
+        {% include 'menu.html' %}
+        {% block content %}{% endblock %}
+        {% include 'footer.html' %}
+    </body>
+</html>

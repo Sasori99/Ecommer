@@ -1,0 +1,594 @@
+{% load static %}
+<section class="featured-area">
+			<div class="container">
+				<div class="row">
+					<div class="text-center">
+						<div class="section-titel">
+							<h3>Sản Phẩm Nổi Bật</h3>
+						</div>
+					</div>
+					<div class="featured-tab">
+						<ul class="text-center">
+						  <li class="active"><a data-toggle="tab" href="#home">Sách Báo</a></li>
+						  <li><a data-toggle="tab" href="#menu1">Đồ Điện Tử</a></li>
+						  <li><a data-toggle="tab" href="#menu2">Quần Áo</a></li>
+						</ul>
+					</div>
+					<div class="tab-content">
+						<div id="home" class="tab-pane active">
+							<div id="features-curosel" class="indicator-style">
+                                {% for p in items %}
+                                    <div class="col-md-12">
+                                        <div class="single-product">
+                                            <div class="product-image">
+                                                <a class="product-img" href="#">
+                                                    <img class="primary-img" src="{% static 'uploads/' %}{{ p.product.image }}" alt="" />
+                                                    <img class="secondary-img" src="img/home-1/fp-2.jpg" alt="" />
+                                                </a>
+                                            </div>
+                                            <span class="onsale">
+                                                <span class="sale-text">{{ p.sale_off }}%</span>
+                                            </span>
+                                            <div class="product-action">
+                                                <h4><a href="{% url 'product-details' p.id %}">{{ p.product.name }} </a></h4>
+                                                <ul class="pro-rating">
+                                                    <li class="pro-ratcolor"><i class="fa fa-star"></i></li>
+                                                    <li class="pro-ratcolor"><i class="fa fa-star"></i></li>
+                                                    <li class="pro-ratcolor"><i class="fa fa-star"></i></li>
+                                                    <li><i class="fa fa-star"></i></li>
+                                                    <li><i class="fa fa-star"></i></li>
+                                                </ul>
+                                                <span class="price">{{ p.price }}</span>
+                                            </div>
+                                            <div class="pro-action">
+                                                <ul>
+                                                    <li>
+                                                        <a class="test all_src_icon" href="#" title="" data-toggle="tooltip" data-placement="top"  data-original-title="Shop Cart">
+                                                        <i class="fa fa-retweet" aria-hidden="true"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="test all_src_icon" href="#" title="" data-toggle="tooltip" data-placement="top" data-original-title="Add Wishlist">
+                                                        <i class="fa fa-heart" aria-hidden="true"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="test all_src_icon" href="#" title="" data-toggle="tooltip" data-placement="top" data-original-title="Compare">
+                                                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+							</div>
+						</div>
+						<div id="menu1" class="tab-pane">
+							<div id="features-curosel-two" class="indicator-style">
+								<div class="col-md-12">
+									<div class="single-product">
+										<div class="product-image">
+											<a class="product-img" href="#">
+												<img class="primary-img" src="img/home-1/fp-4.jpg" alt="" />
+												<img class="secondary-img" src="img/home-1/fp-3.jpg" alt="" />
+											</a>
+										</div>
+										<span class="onsale">
+											<span class="sale-text">Giảm giá</span>
+										</span>
+										<div class="product-action">
+											<h4><a href="#">Sanita Shoes</a></h4>
+											<ul class="pro-rating">
+												<li class="pro-ratcolor"><i class="fa fa-star"></i></li>
+												<li class="pro-ratcolor"><i class="fa fa-star"></i></li>
+												<li class="pro-ratcolor"><i class="fa fa-star"></i></li>
+												<li><i class="fa fa-star"></i></li>
+												<li><i class="fa fa-star"></i></li>
+											</ul>
+											<span class="price">$ 180</span>
+										</div>
+										<div class="pro-action">
+											<ul>
+												<li>
+													<a class="test all_src_icon" href="#" title="" data-toggle="tooltip" data-placement="top"  data-original-title="Shop Cart">
+													<i class="fa fa-retweet" aria-hidden="true"></i>
+													</a>
+												</li>
+												<li>
+													<a class="test all_src_icon" href="#" title="" data-toggle="tooltip" data-placement="top" data-original-title="Add Wishlist">
+													<i class="fa fa-heart" aria-hidden="true"></i>
+													</a>
+												</li>
+												<li>
+													<a class="test all_src_icon" href="#" title="" data-toggle="tooltip" data-placement="top" data-original-title="Compare">
+													<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="single-product">
+										<div class="product-image">
+											<a class="product-img" href="#">
+												<img class="primary-img" src="img/home-1/fp-2.jpg" alt="" />
+												<img class="secondary-img" src="img/home-1/fp-3.jpg" alt="" />
+											</a>
+										</div>
+										<span class="onsale red">
+											<span class="sale-text">35%</span>
+										</span>
+										<div class="product-action">
+											<h4><a href="#">Sanita Shoes</a></h4>
+											<ul class="pro-rating">
+												<li class="pro-ratcolor"><i class="fa fa-star"></i></li>
+												<li class="pro-ratcolor"><i class="fa fa-star"></i></li>
+												<li class="pro-ratcolor"><i class="fa fa-star"></i></li>
+												<li><i class="fa fa-star"></i></li>
+												<li><i class="fa fa-star"></i></li>
+											</ul>
+											<span class="price">$ 180</span>
+										</div>
+										<div class="pro-action">
+											<ul>
+												<li>
+													<a class="test all_src_icon" href="#" title="" data-toggle="tooltip" data-placement="top"  data-original-title="Shop Cart">
+													<i class="fa fa-retweet" aria-hidden="true"></i>
+													</a>
+												</li>
+												<li>
+													<a class="test all_src_icon" href="#" title="" data-toggle="tooltip" data-placement="top" data-original-title="Add Wishlist">
+													<i class="fa fa-heart" aria-hidden="true"></i>
+													</a>
+												</li>
+												<li>
+													<a class="test all_src_icon" href="#" title="" data-toggle="tooltip" data-placement="top" data-original-title="Compare">
+													<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="single-product">
+										<div class="product-image">
+											<a class="product-img" href="#">
+												<img class="primary-img" src="img/home-1/fp-1.jpg" alt="" />
+												<img class="secondary-img" src="img/home-1/fp-4.jpg" alt="" />
+											</a>
+										</div>
+										<span class="onsale">
+											<span class="sale-text">Sale</span>
+										</span>
+										<div class="product-action">
+											<h4><a href="#">Sanita Shoes</a></h4>
+											<ul class="pro-rating">
+												<li class="pro-ratcolor"><i class="fa fa-star"></i></li>
+												<li class="pro-ratcolor"><i class="fa fa-star"></i></li>
+												<li class="pro-ratcolor"><i class="fa fa-star"></i></li>
+												<li><i class="fa fa-star"></i></li>
+												<li><i class="fa fa-star"></i></li>
+											</ul>
+											<span class="price">$ 180</span>
+										</div>
+										<div class="pro-action">
+											<ul>
+												<li>
+													<a class="test all_src_icon" href="#" title="" data-toggle="tooltip" data-placement="top"  data-original-title="Shop Cart">
+													<i class="fa fa-retweet" aria-hidden="true"></i>
+													</a>
+												</li>
+												<li>
+													<a class="test all_src_icon" href="#" title="" data-toggle="tooltip" data-placement="top" data-original-title="Add Wishlist">
+													<i class="fa fa-heart" aria-hidden="true"></i>
+													</a>
+												</li>
+												<li>
+													<a class="test all_src_icon" href="#" title="" data-toggle="tooltip" data-placement="top" data-original-title="Compare">
+													<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="single-product">
+										<div class="product-image">
+											<a class="product-img" href="#">
+												<img class="primary-img" src="img/home-1/fp-2.jpg" alt="" />
+												<img class="secondary-img" src="img/home-1/fp-3.jpg" alt="" />
+											</a>
+										</div>
+										<span class="onsale red">
+											<span class="sale-text">45%</span>
+										</span>
+										<div class="product-action">
+											<h4><a href="#">Sanita Shoes</a></h4>
+											<ul class="pro-rating">
+												<li class="pro-ratcolor"><i class="fa fa-star"></i></li>
+												<li class="pro-ratcolor"><i class="fa fa-star"></i></li>
+												<li class="pro-ratcolor"><i class="fa fa-star"></i></li>
+												<li><i class="fa fa-star"></i></li>
+												<li><i class="fa fa-star"></i></li>
+											</ul>
+											<span class="price">$ 180</span>
+										</div>
+										<div class="pro-action">
+											<ul>
+												<li>
+													<a class="test all_src_icon" href="#" title="" data-toggle="tooltip" data-placement="top"  data-original-title="Shop Cart">
+													<i class="fa fa-retweet" aria-hidden="true"></i>
+													</a>
+												</li>
+												<li>
+													<a class="test all_src_icon" href="#" title="" data-toggle="tooltip" data-placement="top" data-original-title="Add Wishlist">
+													<i class="fa fa-heart" aria-hidden="true"></i>
+													</a>
+												</li>
+												<li>
+													<a class="test all_src_icon" href="#" title="" data-toggle="tooltip" data-placement="top" data-original-title="Compare">
+													<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="single-product">
+										<div class="product-image">
+											<a class="product-img" href="#">
+												<img class="primary-img" src="img/home-1/fp-1.jpg" alt="" />
+												<img class="secondary-img" src="img/home-1/fp-4.jpg" alt="" />
+											</a>
+										</div>
+										<span class="onsale red">
+											<span class="sale-text">45%</span>
+										</span>
+										<div class="product-action">
+											<h4><a href="#">Sanita Shoes</a></h4>
+											<ul class="pro-rating">
+												<li class="pro-ratcolor"><i class="fa fa-star"></i></li>
+												<li class="pro-ratcolor"><i class="fa fa-star"></i></li>
+												<li class="pro-ratcolor"><i class="fa fa-star"></i></li>
+												<li><i class="fa fa-star"></i></li>
+												<li><i class="fa fa-star"></i></li>
+											</ul>
+											<span class="price">$ 180</span>
+										</div>
+										<div class="pro-action">
+											<ul>
+												<li>
+													<a class="test all_src_icon" href="#" title="" data-toggle="tooltip" data-placement="top"  data-original-title="Shop Cart">
+													<i class="fa fa-retweet" aria-hidden="true"></i>
+													</a>
+												</li>
+												<li>
+													<a class="test all_src_icon" href="#" title="" data-toggle="tooltip" data-placement="top" data-original-title="Add Wishlist">
+													<i class="fa fa-heart" aria-hidden="true"></i>
+													</a>
+												</li>
+												<li>
+													<a class="test all_src_icon" href="#" title="" data-toggle="tooltip" data-placement="top" data-original-title="Compare">
+													<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="single-product">
+										<div class="product-image">
+											<a class="product-img" href="#">
+												<img class="primary-img" src="img/home-1/fp-3.jpg" alt="" />
+												<img class="secondary-img" src="img/home-1/fp-1.jpg" alt="" />
+											</a>
+										</div>
+										<span class="onsale red">
+											<span class="sale-text">45%</span>
+										</span>
+										<div class="product-action">
+											<h4><a href="#">Sanita Shoes</a></h4>
+											<ul class="pro-rating">
+												<li class="pro-ratcolor"><i class="fa fa-star"></i></li>
+												<li class="pro-ratcolor"><i class="fa fa-star"></i></li>
+												<li class="pro-ratcolor"><i class="fa fa-star"></i></li>
+												<li><i class="fa fa-star"></i></li>
+												<li><i class="fa fa-star"></i></li>
+											</ul>
+											<span class="price">$ 180</span>
+										</div>
+										<div class="pro-action">
+											<ul>
+												<li>
+													<a class="test all_src_icon" href="#" title="" data-toggle="tooltip" data-placement="top"  data-original-title="Shop Cart">
+													<i class="fa fa-retweet" aria-hidden="true"></i>
+													</a>
+												</li>
+												<li>
+													<a class="test all_src_icon" href="#" title="" data-toggle="tooltip" data-placement="top" data-original-title="Add Wishlist">
+													<i class="fa fa-heart" aria-hidden="true"></i>
+													</a>
+												</li>
+												<li>
+													<a class="test all_src_icon" href="#" title="" data-toggle="tooltip" data-placement="top" data-original-title="Compare">
+													<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="menu2" class="tab-pane">
+							<div id="features-curosel-three" class="indicator-style">
+								<div class="col-md-12">
+									<div class="single-product">
+										<div class="product-image">
+											<a class="product-img" href="#">
+												<img class="primary-img" src="img/home-1/fp-2.jpg" alt="" />
+												<img class="secondary-img" src="img/home-1/fp-4.jpg" alt="" />
+											</a>
+										</div>
+										<span class="onsale">
+											<span class="sale-text">Sale</span>
+										</span>
+										<div class="product-action">
+											<h4><a href="#">Sanita Shoes</a></h4>
+											<ul class="pro-rating">
+												<li class="pro-ratcolor"><i class="fa fa-star"></i></li>
+												<li class="pro-ratcolor"><i class="fa fa-star"></i></li>
+												<li class="pro-ratcolor"><i class="fa fa-star"></i></li>
+												<li><i class="fa fa-star"></i></li>
+												<li><i class="fa fa-star"></i></li>
+											</ul>
+											<span class="price">$ 180</span>
+										</div>
+										<div class="pro-action">
+											<ul>
+												<li>
+													<a class="test all_src_icon" href="#" title="" data-toggle="tooltip" data-placement="top"  data-original-title="Shop Cart">
+													<i class="fa fa-retweet" aria-hidden="true"></i>
+													</a>
+												</li>
+												<li>
+													<a class="test all_src_icon" href="#" title="" data-toggle="tooltip" data-placement="top" data-original-title="Add Wishlist">
+													<i class="fa fa-heart" aria-hidden="true"></i>
+													</a>
+												</li>
+												<li>
+													<a class="test all_src_icon" href="#" title="" data-toggle="tooltip" data-placement="top" data-original-title="Compare">
+													<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="single-product">
+										<div class="product-image">
+											<a class="product-img" href="#">
+												<img class="primary-img" src="img/home-1/fp-3.jpg" alt="" />
+												<img class="secondary-img" src="img/home-1/fp-2.jpg" alt="" />
+											</a>
+										</div>
+										<span class="onsale red">
+											<span class="sale-text">30%</span>
+										</span>
+										<div class="product-action">
+											<h4><a href="#">Sanita Shoes</a></h4>
+											<ul class="pro-rating">
+												<li class="pro-ratcolor"><i class="fa fa-star"></i></li>
+												<li class="pro-ratcolor"><i class="fa fa-star"></i></li>
+												<li class="pro-ratcolor"><i class="fa fa-star"></i></li>
+												<li><i class="fa fa-star"></i></li>
+												<li><i class="fa fa-star"></i></li>
+											</ul>
+											<span class="price">$ 180</span>
+										</div>
+										<div class="pro-action">
+											<ul>
+												<li>
+													<a class="test all_src_icon" href="#" title="" data-toggle="tooltip" data-placement="top"  data-original-title="Shop Cart">
+													<i class="fa fa-retweet" aria-hidden="true"></i>
+													</a>
+												</li>
+												<li>
+													<a class="test all_src_icon" href="#" title="" data-toggle="tooltip" data-placement="top" data-original-title="Add Wishlist">
+													<i class="fa fa-heart" aria-hidden="true"></i>
+													</a>
+												</li>
+												<li>
+													<a class="test all_src_icon" href="#" title="" data-toggle="tooltip" data-placement="top" data-original-title="Compare">
+													<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="single-product">
+										<div class="product-image">
+											<a class="product-img" href="#">
+												<img class="primary-img" src="img/home-1/fp-3.jpg" alt="" />
+												<img class="secondary-img" src="img/home-1/fp-1.jpg" alt="" />
+											</a>
+										</div>
+										<span class="onsale">
+											<span class="sale-text">Sale</span>
+										</span>
+										<div class="product-action">
+											<h4><a href="#">Sanita Shoes</a></h4>
+											<ul class="pro-rating">
+												<li class="pro-ratcolor"><i class="fa fa-star"></i></li>
+												<li class="pro-ratcolor"><i class="fa fa-star"></i></li>
+												<li class="pro-ratcolor"><i class="fa fa-star"></i></li>
+												<li><i class="fa fa-star"></i></li>
+												<li><i class="fa fa-star"></i></li>
+											</ul>
+											<span class="price">$ 180</span>
+										</div>
+										<div class="pro-action">
+											<ul>
+												<li>
+													<a class="test all_src_icon" href="#" title="" data-toggle="tooltip" data-placement="top"  data-original-title="Shop Cart">
+													<i class="fa fa-retweet" aria-hidden="true"></i>
+													</a>
+												</li>
+												<li>
+													<a class="test all_src_icon" href="#" title="" data-toggle="tooltip" data-placement="top" data-original-title="Add Wishlist">
+													<i class="fa fa-heart" aria-hidden="true"></i>
+													</a>
+												</li>
+												<li>
+													<a class="test all_src_icon" href="#" title="" data-toggle="tooltip" data-placement="top" data-original-title="Compare">
+													<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="single-product">
+										<div class="product-image">
+											<a class="product-img" href="#">
+												<img class="primary-img" src="img/home-1/fp-2.jpg" alt="" />
+												<img class="secondary-img" src="img/home-1/fp-1.jpg" alt="" />
+											</a>
+										</div>
+										<span class="onsale red">
+											<span class="sale-text">95%</span>
+										</span>
+										<div class="product-action">
+											<h4><a href="#">Sanita Shoes</a></h4>
+											<ul class="pro-rating">
+												<li class="pro-ratcolor"><i class="fa fa-star"></i></li>
+												<li class="pro-ratcolor"><i class="fa fa-star"></i></li>
+												<li class="pro-ratcolor"><i class="fa fa-star"></i></li>
+												<li><i class="fa fa-star"></i></li>
+												<li><i class="fa fa-star"></i></li>
+											</ul>
+											<span class="price">$ 180</span>
+										</div>
+										<div class="pro-action">
+											<ul>
+												<li>
+													<a class="test all_src_icon" href="#" title="" data-toggle="tooltip" data-placement="top"  data-original-title="Shop Cart">
+													<i class="fa fa-retweet" aria-hidden="true"></i>
+													</a>
+												</li>
+												<li>
+													<a class="test all_src_icon" href="#" title="" data-toggle="tooltip" data-placement="top" data-original-title="Add Wishlist">
+													<i class="fa fa-heart" aria-hidden="true"></i>
+													</a>
+												</li>
+												<li>
+													<a class="test all_src_icon" href="#" title="" data-toggle="tooltip" data-placement="top" data-original-title="Compare">
+													<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="single-product">
+										<div class="product-image">
+											<a class="product-img" href="#">
+												<img class="primary-img" src="img/home-1/fp-2.jpg" alt="" />
+												<img class="secondary-img" src="img/home-1/fp-1.jpg" alt="" />
+											</a>
+										</div>
+										<span class="onsale red">
+											<span class="sale-text">95%</span>
+										</span>
+										<div class="product-action">
+											<h4><a href="#">Sanita Shoes</a></h4>
+											<ul class="pro-rating">
+												<li class="pro-ratcolor"><i class="fa fa-star"></i></li>
+												<li class="pro-ratcolor"><i class="fa fa-star"></i></li>
+												<li class="pro-ratcolor"><i class="fa fa-star"></i></li>
+												<li><i class="fa fa-star"></i></li>
+												<li><i class="fa fa-star"></i></li>
+											</ul>
+											<span class="price">$ 180</span>
+										</div>
+										<div class="pro-action">
+											<ul>
+												<li>
+													<a class="test all_src_icon" href="#" title="" data-toggle="tooltip" data-placement="top"  data-original-title="Shop Cart">
+													<i class="fa fa-retweet" aria-hidden="true"></i>
+													</a>
+												</li>
+												<li>
+													<a class="test all_src_icon" href="#" title="" data-toggle="tooltip" data-placement="top" data-original-title="Add Wishlist">
+													<i class="fa fa-heart" aria-hidden="true"></i>
+													</a>
+												</li>
+												<li>
+													<a class="test all_src_icon" href="#" title="" data-toggle="tooltip" data-placement="top" data-original-title="Compare">
+													<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="single-product">
+										<div class="product-image">
+											<a class="product-img" href="#">
+												<img class="primary-img" src="img/home-1/fp-2.jpg" alt="" />
+												<img class="secondary-img" src="img/home-1/fp-1.jpg" alt="" />
+											</a>
+										</div>
+										<span class="onsale red">
+											<span class="sale-text">95%</span>
+										</span>
+										<div class="product-action">
+											<h4><a href="#">Sanita Shoes</a></h4>
+											<ul class="pro-rating">
+												<li class="pro-ratcolor"><i class="fa fa-star"></i></li>
+												<li class="pro-ratcolor"><i class="fa fa-star"></i></li>
+												<li class="pro-ratcolor"><i class="fa fa-star"></i></li>
+												<li><i class="fa fa-star"></i></li>
+												<li><i class="fa fa-star"></i></li>
+											</ul>
+											<span class="price">$ 180</span>
+										</div>
+										<div class="pro-action">
+											<ul>
+												<li>
+													<a class="test all_src_icon" href="#" title="" data-toggle="tooltip" data-placement="top"  data-original-title="Shop Cart">
+													<i class="fa fa-retweet" aria-hidden="true"></i>
+													</a>
+												</li>
+												<li>
+													<a class="test all_src_icon" href="#" title="" data-toggle="tooltip" data-placement="top" data-original-title="Add Wishlist">
+													<i class="fa fa-heart" aria-hidden="true"></i>
+													</a>
+												</li>
+												<li>
+													<a class="test all_src_icon" href="#" title="" data-toggle="tooltip" data-placement="top" data-original-title="Compare">
+													<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>

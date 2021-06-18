@@ -1,0 +1,203 @@
+{%  extends 'homebase.html' %}
+{% block content %}
+    <section class="checkout-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-9 res-mr-btm">
+						<div class="checkout-left-area">
+							<div class="panel-group" id="accordion">
+                                {% if not user.is_authenticated %}
+                                    <div class="panel panel-default">
+									<div class="panel-heading">
+									  <h4 class="panel-title">
+										<a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+										<span>1</span>Checkout Method</a>
+									  </h4>
+									</div>
+									<div id="collapse1" class="panel-collapse collapse in">
+									  <div class="panel-body">
+										<div class="log-in-left">
+											<h3>CHECKOUT AS A GUEST OR REGISTER</h3>
+											<div class="left-content">
+												<p>Register with us for future convenience:</p>
+												<span><i class="fa fa-dot-circle-o"></i>Checkout as Guest</span>
+												<span><i class="fa fa-dot-circle-o"></i>Register</span>
+												<p>Register and save time!</p>
+												<p>Register with us for future convenience:</p>
+												<p>Fast and easy check out</p>
+												<p>Easy access to your order history and status</p>
+												<p class="login-btn-left"><a href="#">CONTINUE</a></p>
+											</div>
+										</div>
+										<div class="log-in-right">
+											<h3>LOG IN</h3>
+											<div class="right-content">
+												<p>Already registered?</p>
+												<div class="log-in-from">
+													<p>Please log in below:</p>
+													<p>
+														<span>Email Address*</span>
+														<input type="text" />
+													</p>
+													<p>
+														<span>Password*</span>
+														<input type="text" />
+													</p>
+													<p class="login-btn">forgot your password?<a href="#">LOGIN</a></p>
+												</div>
+											</div>
+										</div>
+									  </div>
+									</div>
+								</div>
+                                {% endif %}
+
+
+								<div class="panel panel-default">
+									<div class="panel-heading">
+									  <h4 class="panel-title">
+										<a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+										<span>2</span>Billing Information</a>
+									  </h4>
+									</div>
+
+									<div id="collapse2" class="panel-collapse collapse">
+										<div class="panel-body">
+											<div class="row">
+												<div class="col-md-6">
+													<div class="checkout-form-list">
+														<label>First Name <span class="required">*</span></label>
+														<input type="text" placeholder="" value="{{ user.first_name }}" />
+													</div>
+												</div>
+												<div class="col-md-6">
+													<div class="checkout-form-list">
+														<label>Last Name <span class="required">*</span></label>
+														<input type="text" placeholder="" value="{{ user.last_name }}" />
+													</div>
+												</div>
+												<div class="col-md-12">
+													<div class="checkout-form-list">
+														<label>Address <span class="required">*</span></label>
+														<input type="text" placeholder="Street address" value="{{ user.address }}" />
+													</div>
+												</div>
+
+												<div class="col-md-6">
+													<div class="checkout-form-list">
+														<label>Email Address <span class="required">*</span></label>
+														<input type="email" placeholder="" value="{{ user.email }}" />
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="panel panel-default">
+									<div class="panel-heading">
+									  <h4 class="panel-title">
+										<a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+										<span>4</span>Payment Information</a>
+									  </h4>
+									</div>
+									<div id="collapse4" class="panel-collapse collapse">
+										<div class="panel-body">
+											<div class="payment-met">
+												<form action="#" id="payment-form">
+													<ul class="form-list">
+														<li class="control">
+															<input type="radio" id="p_method_checkmo" name="payment[method]" title="Check / Money order" class="radio">
+															<label for="p_method_checkmo">Check / Money order </label>
+														</li>
+														<li class="control">
+															<input type="radio" id="p_method_ccsave" name="payment[method]" title="Credit Card (saved)" class="radio">
+															<label for="p_method_ccsave">Credit Card (saved) </label>
+														</li>
+													</ul>
+												</form>
+												<div class="buttons-set">
+													<button class="button" type="submit"><span>Continue</span></button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="panel panel-default">
+									<div class="panel-heading">
+									  <h4 class="panel-title">
+										<a data-toggle="collapse" data-parent="#accordion" href="#collapse5">
+										<span>5</span>Order Review</a>
+									  </h4>
+									</div>
+									<div id="collapse5" class="panel-collapse collapse">
+										<div class="panel-body">
+											<div class="order-review" id="checkout-review">
+												<div class="table-responsive" id="checkout-review-table-wrapper">
+													<table class="data-table" id="checkout-review-table">
+														<thead>
+															<tr>
+																<th rowspan="1">Product Name</th>
+																<th colspan="1">Price</th>
+																<th rowspan="1">Qty</th>
+{#																<th colspan="1">Subtotal</th>#}
+															</tr>
+														</thead>
+														<tbody>
+															{% for c in shopcart %}
+															<tr>
+																<td><h3 class="product-name">{{ c.item.product.name }}</h3></td>
+																<td><span class="cart-price"><span class="price">{{ c.item.price }}</span></span></td>
+																<td>{{ c.quantity }}</td>
+																<!-- sub total starts here -->
+{#																<td><span class="cart-price"><span class="price">{{ c }}</span></span></td>#}
+															</tr>
+                                                            {% endfor %}
+														</tbody>
+														<tfoot>
+{#															<tr>#}
+{#																<td colspan="3">Subtotal</td>#}
+{#																<td><span class="price">$377.00</span></td>#}
+{#															</tr>#}
+{#															<tr>#}
+{#																<td colspan="3">Shipping Handling (Flat Rate - Fixed)</td>#}
+{#																<td><span class="price">$10.00</span></td>#}
+{#															</tr>#}
+															<tr>
+																<td colspan="3"><strong>Grand Total</strong></td>
+																<td><strong><span class="price">{{ total }}</span></strong></td>
+															</tr>
+														</tfoot>
+													</table>
+												</div>
+												<div id="checkout-review-submit">
+													<div class="cart-btn-3" id="review-buttons-container">
+														<p class="left">Forgot an Item? <a href="#">Edit Your Cart</a></p>
+                                                        <form method="post" action="{% url 'check-out' %}">
+                                                            {% csrf_token %}
+                                                            <button type="submit" title="Place Order" class="button btn-checkout"><span>Place Order</span></button>
+
+                                                        </form>
+														</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="checkout-right-area">
+							<p>YOUR CHECKOUT PROGRESS</p>
+							<ul>
+								<li><a href="#"> Billing Address</a></li>
+								<li><a href="#"> Shipping Address</a></li>
+								<li><a href="#"> Shipping Method</a></li>
+								<li><a href="#"> Payment Method</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+{% endblock %}

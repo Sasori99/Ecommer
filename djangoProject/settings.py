@@ -40,13 +40,6 @@ INSTALLED_APPS = [
     'user',
     'product',
     'order',
-    'shipment',
-    'payment',
-    'manufacturer',
-    'item',
-    'bill',
-    'notification',
-    'comment',
 ]
 BOOTSTRAP_ADMIN_SIDEBAR_MENU = True
 
@@ -87,9 +80,9 @@ WSGI_APPLICATION = 'djangoProject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'boec',
+        'NAME': 'boecdemo',
         'USER': 'root',
-        'PASSWORD': 'password',
+        'PASSWORD': '12345678',
         'HOST': 'localhost',  # Or an IP Address that your DB is hosted on
         'PORT': '3306',
     }

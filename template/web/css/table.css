@@ -1,0 +1,13 @@
+.short-description-detail{
+    display: flex;
+    /* align-items: center; */
+    align-content:center;
+    margin-bottom: 50px;
+}
+
+.short-description-detail
+    >table ,th, td{
+        width: 1200px;
+        border: 2px solid #b7d44c;
+        text-align: center;
+        }
