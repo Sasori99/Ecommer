@@ -1,46 +1,84 @@
 {% extends 'homebase.html' %}
 {% block content %}
     {% load static %}
-    <body class="other-page">
+    <body class="other-page" style="margin-top: 100px;">
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
 		<!-- BANNER AREA STRAT -->
-		<section class="bannerhead-area">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="banner-heading">
-							<h1>Xác nhận</h1>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+{#		<section class="bannerhead-area">#}
+{#			<div class="container">#}
+{#				<div class="row">#}
+{#					<div class="col-md-12">#}
+{#						<div class="banner-heading">#}
+{#							<h1>Xác nhận</h1>#}
+{#						</div>#}
+{#					</div>#}
+{#				</div>#}
+{#			</div>#}
+{#		</section>#}
 		<!-- BANNER AREA END -->
 		<!-- ACOOUNT FROM AREA START -->
 		<section class="login-area">
 			<div class="container">
 				<div class="row">
 					<div class="account-details">
-						<div class="col-lg-12 col-md-12 col-sm-12 xs-res-mrbtm">
-							<form method="post" class="create-account-form" action="#">
+						<div class="col-lg-12 col-md-12 col-sm-12 xs-res-mrbtm" style="display: flex; justify-content: center">
+							<form method="post" style="border-radius: 20px" class="create-account-form" action="#">
                                 {% csrf_token %}
-								<h1 class="heading-title">Tạo tài khoản</h1>
+								<h1 class="heading-title">Đăng ký tài khoản</h1>
 
-                                {% for field in register_form.visible_fields %}
-								<p class="form-row">
-                                    {{ field.errors.as_text }}
-                                    {{ field.label_tag }}
-                                    {{ field }}
+                                <p class="form-row">
+									<label>Tên đăng nhập</label>
+                                    {{ register_form.errors.as_text }}
+                                    {{ register_form.username }}
 								</p>
-                                {% endfor %}
+                                <p class="form-row">
+									<label>Mật khẩu</label>
+                                    {{ register_form.password.errors.as_text }}
+                                    {{ register_form.password }}
+								</p>
+                                <p class="form-row">
+									<label>Nhập lại mật khẩu</label>
+                                   {{ register_form.password_again.errors.as_text }}
+                                   {{ register_form.password_again }}
+								</p>
+                                <p class="form-row">
+									<label>Email</label>
+                                   {{ register_form.email.errors.as_text }}
+                                   {{ register_form.email }}
+								</p>
+                                <p class="form-row">
+									<label>Họ và đệm</label>
+                                   {{ register_form.first_name.errors.as_text }}
+                                   {{ register_form.first_name }}
+								</p>
+                                <p class="form-row">
+									<label>Tên</label>
+                                   {{ register_form.last_name.errors.as_text }}
+                                   {{ register_form.last_name }}
+								</p>
+                                <p class="form-row">
+									<label>Địa chỉ</label>
+                                   {{ register_form.full_address.errors.as_text }}
+                                   {{ register_form.full_address }}
+								</p>
+                                <p class="form-row">
+									<label>Thành phố</label>
+                                   {{ register_form.city.errors.as_text }}
+                                   {{ register_form.city }}
+								</p>
+                                <p class="form-row">
+									<label>Đất nước</label>
+                                   {{ register_form.country.errors.as_text }}
+                                   {{ register_form.country }}
+								</p>
 								<div class="submit">					
 									<button name="submitcreate" id="submitcreate" type="submit" class="">
 										<span>
 											<i class="fa fa-user left"></i>
-											Tạo tài khoản
+											Đăng ký tài khoản
 										</span>
 									</button>
 								</div>		
@@ -56,129 +94,23 @@
 			<div class="container">
 				<div class="text-center">
 					<div class="section-titel">
-						<h3>OUR BRANDS</h3>
+						<h3>Các đối tác của chúng tôi</h3>
 					</div>
 				</div>
 				<div class="row blog-area">
 					<div id="ourbrand-owl">
-						<div class="col-md-12"><img src="img/other-pg/brand-logo-1.jpg" alt="" /></div>
-						<div class="col-md-12"><img src="img/other-pg/brand-logo-2.jpg" alt="" /></div>
-						<div class="col-md-12"><img src="img/other-pg/brand-logo-3.jpg" alt="" /></div>
-						<div class="col-md-12"><img src="img/other-pg/brand-logo-4.jpg" alt="" /></div>
-						<div class="col-md-12"><img src="img/other-pg/brand-logo-5.jpg" alt="" /></div>
-						<div class="col-md-12"><img src="img/other-pg/brand-logo-3.jpg" alt="" /></div>
-						<div class="col-md-12"><img src="img/other-pg/brand-logo-1.jpg" alt="" /></div>
-						<div class="col-md-12"><img src="img/other-pg/brand-logo-2.jpg" alt="" /></div>
+						<div class="col-md-12"><img src="{%  static 'web/img/other-pg/brand-logo-1.png' %}" alt="" /></div>
+						<div class="col-md-12"><img src="{%  static 'web/img/other-pg/brand-logo-2.png' %}" alt="" /></div>
+						<div class="col-md-12"><img src="{%  static 'web/img/other-pg/brand-logo-3.png' %}" alt="" /></div>
+						<div class="col-md-12"><img src="{%  static 'web/img/other-pg/brand-logo-4.png' %}" alt="" /></div>
+						<div class="col-md-12"><img src="{%  static 'web/img/other-pg/brand-logo-5.png' %}" alt="" /></div>
+						<div class="col-md-12"><img src="{%  static 'web/img/other-pg/brand-logo-3.png' %}" alt="" /></div>
+						<div class="col-md-12"><img src="{%  static 'web/img/other-pg/brand-logo-1.png' %}" alt="" /></div>
+						<div class="col-md-12"><img src="{%  static 'web/img/other-pg/brand-logo-2.png' %}" alt="" /></div>
 					</div>
 				</div>
 			</div>
 		</section>
-		<!-- OUR BRAND AREA END -->
-		<!-- Footer Top Area Start -->
-		<div class="footer-top">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-4 col-sm-4">
-						<div class="social-icon">
-							<ul>
-								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="#"><i class="fa fa-rss"></i></a></li>
-								<li><a href="#"><i class="fa fa-instagram"></i></a></li>
-								<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-								<li><a href="#"><i class="fa fa-youtube"></i></a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-md-8 col-sm-8">
-						<div class="foteer-news">
-							<h3>NEWSLETTER</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed</p>
-						</div>
-						<div class="search-input">
-							<form action="#">
-								<input type="text" placeholder="Enter your keyword...">
-								<button class="search-button" type="submit" value="Submit">Subcribe</button>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- Footer Top Area End -->
-		<!-- Footer Middle Area Start -->
-		<section class="footer-middle">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-3 col-sm-4 col-xs-12 xs-res-mrbtm">
-						<div class="footer-menu">
-							<h4>MY ACCOUNT</h4>
-							<ul>
-								<li><a href="#">Login</a></li>
-								<li><a href="#">My Account</a></li>
-								<li><a href="#">My Cart</a></li>
-								<li><a href="#">Wishlist</a></li>
-								<li><a href="#">Checkout</a></li>
-								<li><a href="#">Userinfor</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-md-3 hidden-sm hidden-xs">
-						<div class="footer-menu">
-							<h4>INFORMATION</h4>
-							<ul>
-								<li><a href="#">Sitemap</a></li>
-								<li><a href="#">Privacy Policy</a></li>
-								<li><a href="#">Your Account</a></li>
-								<li><a href="#">Advanced Search</a></li>
-								<li><a href="#">Affiliates</a></li>
-								<li><a href="#">Group Sales</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-md-3 col-sm-4 col-xs-12 xs-res-mrbtm">
-						<div class="footer-menu">
-							<h4>CONTACT US</h4>
-							<ul>
-								<li><a href="#">Product Recall</a></li>
-								<li><a href="#">Gift Vouchers</a></li>
-								<li><a href="#">Returns and Exchanges</a></li>
-								<li><a href="#">Shipping Options</a></li>
-								<li><a href="#">Blogs</a></li>
-								<li><a href="#">Help & Faqs</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-md-3 col-sm-4 col-xs-12">
-						<div class="address-area">
-							<a href="index.html"><img src="img/home-1/footer-logo.png" alt="" /></a>
-							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.</p>
-							<div class="contact-details">
-								<ul>
-									<li><i class="fa fa-phone"></i>+(00) 56-888-999</li>
-									<li><i class="fa fa-envelope-o"></i> admin@DevItems.com</li>
-									<li><i class="fa fa-map-marker"></i> 1212, Bigrun street, France.</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- Footer Middle Area End -->
-		<!-- Footer Bottom Area Start -->
-		<div class="footer-bottom-area">
-			<div class="container">
-				<div class="row ">
-					<div class="col-md-6 col-sm-6 col-xs-12">
-						<p>Copyright &copy;  <a href="http://www.devitems.com/"> Devitems. </a> All Rights Reserved.</p>
-					</div>
-					<div class="col-md-6 col-sm-6 col-xs-12">
-						<img src="img/other-pg/payment.png" alt="" />
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- Footer Bottom Area End -->
 		
 		<!-- all js here -->
 		<!-- jquery latest version -->

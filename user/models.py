@@ -5,7 +5,7 @@ from django.db import models
 
 
 class User(AbstractUser):
-    address = models.ForeignKey('staff.Address', on_delete=models.CASCADE, null=True)
+    address = models.ForeignKey('staff.Address', on_delete=models.CASCADE, blank=True, null=True)
 
 
 class Cart(models.Model):

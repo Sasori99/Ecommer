@@ -1,27 +1,27 @@
-
-{% load static %}
-
-<section class="header-top-area">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-6">
-						<div class="left-msg pull-left">
+{##}
+{#{% load static %}#}
+{##}
+{#<section class="header-top-area">#}
+{#			<div class="container">#}
+{#				<div class="row">#}
+{#					<div class="col-md-6">#}
+{#						<div class="left-msg pull-left">#}
 {#							<h6>Miễn phí ship cho đơn hàng từ 300,000 VND</h6>#}
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="right-login pull-right">
-							<!-- <div class="currencies-block-top curency pull-left">
-								<div class="current">
-									<span>USD</span>
-									<i class="fa fa-angle-down"></i>
-								</div>
-								<ul class="first-currencies toggle-content">
-									<li><a href="#">Dollar (USD)</a></li>
-									<li><a href="#">Pound (GBP)</a></li>
-									<li><a href="#">Pound (GBP)</a></li>
-								</ul>
-							</div> -->
+{#						</div>#}
+{#					</div>#}
+{#					<div class="col-md-6">#}
+{#						<div class="right-login pull-right">#}
+{#							<!-- <div class="currencies-block-top curency pull-left">#}
+{#								<div class="current">#}
+{#									<span>USD</span>#}
+{#									<i class="fa fa-angle-down"></i>#}
+{#								</div>#}
+{#								<ul class="first-currencies toggle-content">#}
+{#									<li><a href="#">Dollar (USD)</a></li>#}
+{#									<li><a href="#">Pound (GBP)</a></li>#}
+{#									<li><a href="#">Pound (GBP)</a></li>#}
+{#								</ul>#}
+{#							</div> -->#}
 {#							<div class="languages-block-top curency pull-left">#}
 {#								<div class="current">#}
 {#									<span>Ngôn ngữ</span>#}
@@ -33,22 +33,22 @@
 {#									<li><a href="#">Tiếng Trung</a></li>#}
 {#								</ul>#}
 {#							</div>#}
-							<div class="curency pull-left" style="display: flex;">
-                                {% if not user.is_authenticated %}
-								<div class="current" style="padding-left: 5px; ">
-									<span ><a href={% url 'login' %} style="margin-right: 4px; color: #00FF7F;">Đăng nhập</a></span>
-								</div>
-                                {% else %}
-								<div class="current">
-									<span><a href={% url 'account-details' %}>{{ user.username }}</a></span>
-								</div>
-                                <div class="current" style="padding-left: 5px; ">
-									<span><a href={% url 'logout'%} style="margin-right: 4px; color: #FF6347;">Đăng xuất</a></span>
-								</div>
-                            {% endif %}
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+{#							<div class="curency pull-left" style="display: flex;">#}
+{#                                {% if not user.is_authenticated %}#}
+{#								<div class="current" style="padding-left: 5px; ">#}
+{#									<span ><a href={% url 'login' %} style="margin-right: 4px; color: #00FF7F;">Đăng nhập</a></span>#}
+{#								</div>#}
+{#                                {% else %}#}
+{#								<div class="current">#}
+{#									<span><a href={% url 'account-details' %}>{{ user.username }}</a></span>#}
+{#								</div>#}
+{#                                <div class="current" style="padding-left: 5px; ">#}
+{#									<span><a href={% url 'logout'%} style="margin-right: 4px; color: #FF6347;">Đăng xuất</a></span>#}
+{#								</div>#}
+{#                            {% endif %}#}
+{#							</div>#}
+{#						</div>#}
+{#					</div>#}
+{#				</div>#}
+{#			</div>#}
+{#		</section>#}

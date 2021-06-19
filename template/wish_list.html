@@ -15,8 +15,6 @@
 										<th style="font-weight: bold!important;background-color: #dedede;" class="product-image">Hình ảnh</th>
 										<th style="font-weight: bold!important;background-color: #dedede;" class="product-name">Tên sản phẩm</th>
 										<th style="font-weight: bold!important;background-color: #dedede;" class="product-unit-price">Đơn  giá</th>
-										<th style="font-weight: bold!important;background-color: #dedede;" class="product-quantity">Số lượng</th>
-										<th style="font-weight: bold!important;background-color: #dedede;" class="product-subtotal">Tổng tiền</th>
                                         <th style="font-weight: bold!important;background-color: #dedede;" class="product-remove">Thao tác</th>
 									</tr>
 								</thead>
@@ -32,26 +30,15 @@
 										<td class="product-unit-price" style="padding: 0 10px;">
 											<p>{{ item.item.price }}</p>
 										</td>
-										<td class="product-quantity product-cart-details" style="padding: 0 10px;">
-                                            <input class="form-control" style="background: #ffffff none repeat scroll 0 0;border: 1px solid #f0f0f0;color: #000;" value="{{ item.quantity }}" name="quantity_{{ item.id }}"/>
-										</td>
-										<td class="product-quantity" style="padding: 0 10px;">
-											<p>{{ item.total }}</p>
-										</td>
                                         <td class="product-remove">
-											<a href="{% url 'delete-item-from-cart' item.id %}"><i class="fa fa-trash-o"></i></a>
+											<a class="test all_src_icon" href="{% url 'add-to-cart' item.item.product.id %}" title="" data-toggle="tooltip" data-placement="top" data-original-title="Thêm vào giỏ hàng">
+                                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                            </a>
 										</td>
 									</tr>
                                 {% endfor %}
 								</tbody>
 							</table>
-						</div>
-						<div class="shopingcart-bottom-area">
-{#							<a href={% url 'search-item' %} class="bottomb">CONTINUE SHOPPING</a>#}
-							<div class="bottom-button">
-								<a class="bottomb" style="cursor: pointer">XÓA TẤT CẢ</a>
-								<button type="submit" class="bottomb">MUA HÀNG</button>
-							</div>
 						</div>
                     </form>
                         {% else %}

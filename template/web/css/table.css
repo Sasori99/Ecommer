@@ -8,6 +8,6 @@
 .short-description-detail
     >table ,th, td{
         width: 1200px;
-        border: 2px solid #b7d44c;
+        border: 1px solid #dedede;
         text-align: center;
         }

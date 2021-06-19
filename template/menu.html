@@ -1,13 +1,13 @@
 {% load static %}
-<div class="menu-area">
+<div class="menu-area navbar-fixed-top">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-2 col-sm-2">
 						<div class="logo-area">
-							<a href="home"><img style="width: 55px;" src="{%  static 'web/img/home-1/logo-3.png' %}" alt="" /></a>
+							<a href="/"><img style="width: 55px;" src="{%  static 'web/img/home-1/logo-3.png' %}" alt="" /></a>
 						</div>
 					</div>
-					<div class="col-md-8 col-sm-8">
+					<div class="col-md-6 col-sm-6">
 						<div class="main-menu">
 							<ul class="list-inline">
 							  <li class="expand {% if not request.GET.type %} active {% endif %}"><a href="{% url 'home' %}">Trang chủ</a>
@@ -89,7 +89,7 @@
 						<div class="container">
 							<div class="row">
 								<div class="col-md-12">
-								<div class="mobile-area">
+								    <div class="mobile-area">
 									<div class="mobile-menu">
 										<nav id="mobile-nav">
 											<ul>
@@ -128,9 +128,9 @@
 						</div>
 					</div>
 					<!-- MOBILE-MENU-AREA END  -->
-					<div class="col-md-2 col-sm-2">
+					<div class="col-md-4 col-sm-4">
 						<div class="menu-right-area">
-							<ul>
+							<ul style="display: inline-flex;" class="justify-content-center align-items-center">
 								<li>
 									<a href="#" class="cart-toggler search-icon">
 										<i class="fa fa-search"></i>
@@ -148,13 +148,27 @@
 								</li>
 								<li>
                                     {% if user.is_authenticated %}
+									<a href="{% url 'wish-list' %}" class="cart-toggler mini-cart-icon">
+										<i class="fa fa-heart" style="border-right: 1px solid #fff;"></i>
+									</a>
+								</li>
+                                <li>
 									<a href="{% url 'shopping-cart' %}" class="cart-toggler mini-cart-icon">
-										<i class="fa fa-shopping-cart"></i>
-{#										<span>2</span>#}
+										<i class="fa fa-shopping-cart" style="border-right: 1px solid #fff;"></i>
 									</a>
 								</li>
                             {% endif %}
+								<li style="line-height: 27px;">
+									{% if not user.is_authenticated %}
 
+									<span ><a style="margin-right: 15px; color: #00FF7F; padding-left: 15px" href={% url 'login' %}>Đăng nhập</a></span>
+
+                                {% else %}
+
+									<span ><a style="padding-left: 15px;" href={% url 'account-details' %}>{{ user.username }}</a><a style="margin-left: 10px; color: #FF6347;" href={% url 'logout'%}>Đăng xuất</a></span>
+
+                            {% endif %}
+								</li>
 							</ul>
 
 						</div>

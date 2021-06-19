@@ -20,8 +20,18 @@ from django.urls import reverse
 
 def home(request):
     items = Item.objects.all().order_by('-id')[:4]
+    filters = {}
+    filters['product__type'] = 2
+    listBook = Item.objects.filter(**filters).order_by('-id')[:4]
+    filters['product__type'] = 1
+    listCloth = Item.objects.filter(**filters).order_by('-id')[:4]
+    filters['product__type'] = 3
+    listElec = Item.objects.filter(**filters).order_by('-id')[:4]
     context = {
         'items': items,
+        'listBook': listBook,
+        'listCloth': listCloth,
+        'listElec': listElec,
         'page': 'home'
     }
     return render(request, 'index.html', context)
@@ -147,12 +157,12 @@ def shopping_cart(request):
     total = 0
     for rs in shopcart:
         total += rs.item.price * rs.quantity
+        rs.total = rs.item.price * rs.quantity
     # return HttpResponse(str(total))
     context = {'shopcart': shopcart,
                'total': total,
                }
     return render(request, 'shopping_cart.html', context)
-
 
 @login_required(login_url='/user/login')  # Check login
 def check_out(request):
@@ -241,3 +251,32 @@ def product_to_item_view(request):
     products = Product.objects.exclude(id__in=Product.objects.filter(item__in=item))
     products_in_stock = ProductInStock.objects.filter(product__in=products)
     return render(request, 'product_to_item.html', {'products_in_stock': products_in_stock})
+
+@login_required(login_url='/user/login')  # Check login
+def wish_list(request):
+    current_user = request.user  # Access User Session information
+    cart = Cart.objects.filter(user=current_user)
+    if len(cart) == 0:
+        cart = Cart(user=current_user)
+        cart.save()
+    else:
+        cart = cart[0]
+
+    if request.method == 'POST':
+        for key in request.POST:
+            if 'quantity' in key:
+                item_in_cart = ItemInCart.objects.get(pk=int(key.split('_')[1]))
+                item_in_cart.quantity = request.POST[key]
+                item_in_cart.save()
+
+        return redirect(check_out)
+
+    shopcart = ItemInCart.objects.filter(cart=cart, order=None)
+    total = 0
+    for rs in shopcart:
+        total += rs.item.price * rs.quantity
+    # return HttpResponse(str(total))
+    context = {'shopcart': shopcart,
+               'total': total,
+               }
+    return render(request, 'wish_list.html', context)

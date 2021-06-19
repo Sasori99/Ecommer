@@ -1,7 +1,7 @@
 {% extends 'homebase.html' %}
 {% block content %}
     {% load static %}
-  <div class="product-simple-area">
+  <div class="product-simple-area"style="margin-top: 100px">
 			<div class="container">
 				<!-- <div class="row"> -->
 					<!-- <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
@@ -25,8 +25,8 @@
 							</div>
 						</div>
 					</div> -->
-					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-						<div class="single-product-info">
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<div class="single-product-info shoping-cart-area">
 							<div class="product-nav">
 								<a href="#"><i class="fa fa-angle-right"></i></a>
 							</div>
@@ -34,40 +34,39 @@
 							<div class="price-box">
 								<span class="new-price">{{ order_log.order_status }}</span>
 							</div>
-							<div class="short-description-detail">
-                            <table >
-                                <thead>
-                                        <tr >
-                                            <th class="product-image" style="width: 25%">Ảnh</th>
-                                            <th class="product-name" style="width: 20%">Tên</th>
-                                            <th class="product-unit-price" style="width: 13%">Đơn giá</th>
-                                            <th class="product-quantity" style="width: 12%">Số Lượng</th>
-                                            <th class="product-subtotal" style="width: 30%">Tổng Tiền</th>
+							<div class="wishlist-table-area table-responsive">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th style="font-weight: bold!important;background-color: #dedede;" class="product-image">Hình ảnh</th>
+                                            <th style="font-weight: bold!important;background-color: #dedede;" class="product-name">Tên sản phẩm</th>
+                                            <th style="font-weight: bold!important;background-color: #dedede;" class="product-unit-price">Đơn  giá</th>
+                                            <th style="font-weight: bold!important;background-color: #dedede;" class="product-quantity">Số lượng</th>
+                                            <th style="font-weight: bold!important;background-color: #dedede;" class="product-subtotal">Tổng tiền</th>
                                         </tr>
                                     </thead>
-                                    {% for item in ordered_items %}
-                                       <tr >
-                                            <!-- <td class="product-remove">
-                                                <a href="{% url 'delete-item-from-cart' item.id %}"><i class="fa fa-trash-o"></i></a>
-                                            </td> -->
-                                            <td class="product-image" style="width: 25%">
-                                                <a href="#"><img alt="#" src="{% static 'uploads/' %}{{ item.item.product.image }}"></a>
+                                    <tbody>
+                                        {% for item in ordered_items %}
+                                        <tr>
+                                            <td class="product-image">
+                                                <a href={% url 'product-details' item.item.id %}><img alt="#" src="{% static 'uploads/' %}{{ item.item.product.image }}"></a>
                                             </td>
-                                            <td class="product-name" style="width: 20%; font-size: small;">
+                                            <td class="product-name" style="padding: 0 10px;">
                                                 <h3><a href={% url 'product-details' item.item.id %}>{{ item.item.product.name }}</a></h3>
                                             </td>
-                                            <td class="product-unit-price" style="width: 13%">
+                                            <td class="product-unit-price" style="padding: 0 10px;">
                                                 <p>{{ item.item.price }}</p>
                                             </td>
-                                            <td class="product-quantity product-cart-details"style="width: 12%; text-align: center">
+                                            <td class="product-quantity product-cart-details" style="padding: 0 10px;">
                                                 <p>{{ item.quantity }}</p>
                                             </td>
-                                            <td class="product-quantity" style="width: 30%">
+                                            <td class="product-quantity" style="padding: 0 10px;">
                                                 <p>{{ item.item.price }}</p>
                                             </td>
                                         </tr>
                                     {% endfor %}
-                            </table>
+                                    </tbody>
+							    </table>
 							</div>
 							<!-- <div class="stock-status">
 								<label>Availability</label>: <strong>In stock</strong>
